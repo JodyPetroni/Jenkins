@@ -7,6 +7,11 @@ terraform {
   }
 }
 
+provider "azurerm" {
+  features {}
+  version = "~>2.20.0"
+}
+
 module "rg" {
   source      = "./src"
 }
