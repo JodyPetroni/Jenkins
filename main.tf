@@ -9,7 +9,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  version = "~>2.20.0"
+  version = "~>2.26"
 }
 
 module "rg" {
