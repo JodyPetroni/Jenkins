@@ -9,11 +9,15 @@ pipeline{
         TF_IN_AUTOMATION = "true"
         PATH = "$TF_HOME:$PATH"
     }
-    stages {
-        stage('Test') {
-        echo 'Testing....'
-       
-    }
+        stage('Waiting for Approval'){
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    input (message: "Deploy the infrastructure?")
+                }
+            }
+        
+        }
+        
         stage('Terraform Init'){
             
             steps {
