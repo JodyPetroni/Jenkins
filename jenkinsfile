@@ -13,7 +13,6 @@ pipeline{
     stages {    
         stage('Shared Script'){
             steps {
-                echo 'Testing....'
                 script()
             }
 
