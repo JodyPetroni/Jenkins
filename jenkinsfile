@@ -1,3 +1,4 @@
+node {
 pipeline{
     agent any 
     tools {
@@ -9,10 +10,7 @@ pipeline{
         PATH = "$TF_HOME:$PATH"
     }
     stages {
-        stage('Test') {
-        echo 'Testing....'
-        script()
-    }
+        
         stage('Terraform Init'){
             
             steps {
@@ -109,4 +107,5 @@ pipeline{
         }
 
     }
+}
 }
