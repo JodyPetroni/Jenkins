@@ -10,7 +10,10 @@ pipeline{
         PATH = "$TF_HOME:$PATH"
     }
     stages {
-        
+        stage('Test') {
+        echo 'Testing....'
+       
+    }
         stage('Terraform Init'){
             
             steps {
