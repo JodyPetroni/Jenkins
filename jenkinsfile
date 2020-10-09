@@ -13,6 +13,15 @@ pipeline{
         
         stage('Terraform Init'){
             
+             stage('Waiting for Approval'){
+                steps {
+                    timeout(time: 10, unit: 'MINUTES') {
+                        input (message: "Deploy the infrastructure?")
+                    }
+                }
+
+            }
+        
             steps {
                     ansiColor('xterm') {
                     withCredentials([azureServicePrincipal(
