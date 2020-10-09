@@ -1,4 +1,4 @@
-@Library('shared')_
+@Library('sharedz')_
 
 pipeline{
     agent any 
@@ -14,7 +14,7 @@ pipeline{
         stage('Shared Script'){
             steps {
                 echo 'Testing....'
-                script()
+                
             }
 
         }
