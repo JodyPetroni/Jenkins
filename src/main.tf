@@ -32,7 +32,7 @@ QUERY
 }
 
 resource "azurerm_sql_server" "example" {
-  name                         = "example-server"
+  name                         = "jmp-example-server"
   resource_group_name          = azurerm_resource_group.this.name
   location                     = "Australia Southeast"
   version                      = "12.0"
@@ -64,7 +64,7 @@ resource "azurerm_stream_analytics_output_mssql" "example" {
 }
 
 resource "azurerm_iothub" "example" {
-  name                = "example-iothub"
+  name                = "jmp-example-iothub"
   resource_group_name = azurerm_resource_group.this.name
   location            = "Australia Southeast"
 
