@@ -37,7 +37,7 @@ resource "azurerm_sql_server" "example" {
   location                     = "Australia Southeast"
   version                      = "12.0"
   administrator_login          = "dbadmin"
-  administrator_login_password = "example-password"
+  administrator_login_password = "Password!123@456"
 }
 
 resource "azurerm_sql_database" "example" {
