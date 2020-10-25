@@ -25,7 +25,7 @@ resource "azurerm_stream_analytics_job" "example" {
     INTO
         example-output-sql
     FROM
-        iothub
+        example-iothub
 
 QUERY
 
