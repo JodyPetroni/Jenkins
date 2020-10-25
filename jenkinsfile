@@ -15,7 +15,7 @@ pipeline{
             steps {
                 echo 'Building....'
                 sh '/usr/bin/dotnet --version'
-                sh '/usr/bin/dotnet build src/console.csproj'
+                sh '/usr/bin/dotnet build src/iot/TimeSeriesAnalytics.csproj'
                 shared()
             }
 
