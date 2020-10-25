@@ -13,6 +13,9 @@ pipeline{
     stages {    
         stage('Shared Script'){
             steps {
+                echo 'Building....'
+                sh '/usr/bin/dotnet --version'
+                sh '/usr/bin/dotnet build src/console.csproj'
                 shared()
             }
 
