@@ -76,7 +76,7 @@ resource "azurerm_iothub" "example" {
 
 resource "azurerm_stream_analytics_stream_input_iothub" "example" {
   name                         = "example-iothub-input"
-  stream_analytics_job_name    = data.azurerm_stream_analytics_job.example.name
+  stream_analytics_job_name    = azurerm_stream_analytics_job.example.name
   resource_group_name          = azurerm_resource_group.this.name
   endpoint                     = "messages/events"
   eventhub_consumer_group_name = "$Default"
