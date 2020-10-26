@@ -76,16 +76,7 @@ resource "azurerm_iothub" "example" {
     capacity = "1"
   }
   
-  endpoint {
-    type                       = "AzureIotHub.StorageContainer"
-    connection_string          = data.azurerm_storage_account.example.primary_connection_string
-    name                       = "export"
-    batch_frequency_in_seconds = 60
-    max_chunk_size_in_bytes    = 10485760
-    container_name             = "testc"
-    encoding                   = "Avro"
-    file_name_format           = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"
-  }
+  
 }
 
 
