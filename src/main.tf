@@ -23,9 +23,9 @@ resource "azurerm_stream_analytics_job" "example" {
     SELECT
        count as person, EventEnqueuedUtcTime as cameraTime,Cameraid as location
     INTO
-        example-output-sql
+        sql
     FROM
-        example-iothub
+        iothub
 
 QUERY
 
@@ -52,7 +52,7 @@ resource "azurerm_sql_database" "example" {
 }
 
 resource "azurerm_stream_analytics_output_mssql" "example" {
-  name                      = "example-output-sql"
+  name                      = "sql"
   stream_analytics_job_name = azurerm_stream_analytics_job.example.name
   resource_group_name       = azurerm_resource_group.this.name
 
