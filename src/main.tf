@@ -72,7 +72,7 @@ resource "azurerm_iothub" "example" {
   location            = "Australia Southeast"
 
   sku {
-    name     = "F1"
+    name     = "S1"
     capacity = "1"
   }
   
