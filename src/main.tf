@@ -74,6 +74,29 @@ resource "azurerm_iothub" "example" {
   }
 }
 
+data "azurerm_iothub_shared_access_policy" "b59iothub_iothubowner" {
+    name                = "iothubowner"
+    resource_group_name = azurerm_resource_group.this.name
+    iothub_name         = azurerm_iothub.example.name
+}
+
+resource "azurerm_iothub_dps" "b59dps" {
+    name                = "b59dps"
+    resource_group_name = azurerm_resource_group.this.name
+    location            = "Australia Southeast"
+
+
+    sku {
+        name     = "S1"
+        capacity = 1
+    }
+
+    linked_hub {
+        connection_string = data.azurerm_iothub_shared_access_policy.b59iothub_iothubowner.primary_connection_string
+        location = "Australia Southeast"
+
+    }
+}
 
 resource "azurerm_stream_analytics_stream_input_iothub" "example" {
   name                         = "example-iothub-input"
