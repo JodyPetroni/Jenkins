@@ -62,7 +62,10 @@ resource "azurerm_stream_analytics_output_mssql" "example" {
   database = azurerm_sql_database.example.name
   table    = "ExampleTable"
 }
-
+data "azurerm_storage_account" "example" {
+  name                = "demostoragejmp"
+  resource_group_name = "RealTimeInsights"
+}
 resource "azurerm_iothub" "example" {
   name                = "jmp-example-iothub"
   resource_group_name = azurerm_resource_group.this.name
@@ -75,7 +78,7 @@ resource "azurerm_iothub" "example" {
   
   endpoint {
     type                       = "AzureIotHub.StorageContainer"
-    connection_string          = "DefaultEndpointsProtocol=https;AccountName=demostoragejmp;AccountKey=mp1YFDxIY/XS4iUAFdfx3TJXWMZykIaqYCp8J0FJdP5b1EhKs9djrLyBLXJDLPaDYF6F+waO9cX2gz7UVUp3pg==;EndpointSuffix=core.windows.net"
+    connection_string          = data.azurerm_storage_account.example.primary_connection_string
     name                       = "export"
     batch_frequency_in_seconds = 60
     max_chunk_size_in_bytes    = 10485760
